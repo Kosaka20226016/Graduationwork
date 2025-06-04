@@ -23,5 +23,7 @@ class MainActivity : AppCompatActivity() {
         val myRef =database.getReference("message")
 
         myRef.setValue("こんにちはー")
+
+
     }
 }
