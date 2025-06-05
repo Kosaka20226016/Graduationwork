@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val registerButton = findViewById<Button>(R.id.registerButton)
-
+        val backButton = findViewById<Button>(R.id.backButton)
         registerButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -43,6 +43,10 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "メールアドレスとパスワードを入力してください", Toast.LENGTH_SHORT).show()
             }
+        }
+        backButton.setOnClickListener {
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }
