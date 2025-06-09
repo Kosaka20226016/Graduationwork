@@ -1,5 +1,6 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,27 +13,29 @@
         android:textAlignment="center"
         android:textSize="34sp" />
 
-
-
-
+    <ImageView
+        android:id="@+id/barcodeImageView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:contentDescription="会員バーコード"
+        android:padding="16dp" />
 
 
     <!-- 上のコンテンツ（省略可）-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <!-- メイン画面の中身を書く（ログイン情報や画像など）-->
-    </FrameLayout>
+        android:layout_weight="1" />
 
     <!-- ↓↓↓ フッター（下部ボタン一列） ↓↓↓ -->
     <LinearLayout
         android:id="@+id/footer_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="#EEEEEE"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <Button
@@ -40,8 +43,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ホーム"
             android:padding="8dp"
+            android:text="ホーム"
             android:textSize="14sp" />
 
         <Button
@@ -49,8 +52,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="カレンダー"
             android:padding="8dp"
+            android:text="カレンダー"
             android:textSize="14sp" />
 
         <Button
@@ -58,8 +61,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="お知らせ"
             android:padding="8dp"
+            android:text="お知らせ"
             android:textSize="14sp" />
 
         <Button
@@ -67,8 +70,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="クーポン"
             android:padding="8dp"
+            android:text="クーポン"
             android:textSize="14sp" />
 
         <Button
@@ -76,8 +79,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="マイページ"
             android:padding="8dp"
+            android:text="マイページ"
             android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>
