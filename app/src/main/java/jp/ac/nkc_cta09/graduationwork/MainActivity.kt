@@ -15,6 +15,8 @@ import com.google.zxing.common.BitMatrix
 import android.graphics.Bitmap
 import android.widget.TextView
 import android.util.Log
+import android.widget.Button
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +52,15 @@ class MainActivity : AppCompatActivity() {
             }
 
         view_user_id.text = "ID: $userId"
+        // *** ここからマイページボタンのロジックを追加 ***
+        // activity_main.xml にあるマイページボタンのIDに合わせて変更してください
+        val myPageButton: Button = findViewById(R.id.button3) // 例: あなたのXMLのボタンID
+
+        myPageButton.setOnClickListener {
+            val intent = Intent(this, MypageActivity::class.java) // MyPageActivityへのIntent
+            startActivity(intent) // MyPageActivityを開始
+        }
+        // *** ここまでマイページボタンのロジック ***
     }
 
     fun generateBarcodeBitmap(content: String, width: Int = 1000, height: Int = 250): Bitmap {
