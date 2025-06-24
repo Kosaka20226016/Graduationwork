@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "ログイン成功", Toast.LENGTH_SHORT).show()
 
                         // 次の画面に遷移（例：MainActivity）
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, CheckUserInfoActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
