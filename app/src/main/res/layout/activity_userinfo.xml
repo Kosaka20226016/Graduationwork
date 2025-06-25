@@ -6,52 +6,78 @@
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hair Room AZUMA"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/登録"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="会員情報登録"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="名前" />
+        android:layout_marginTop="24dp"
+        android:text="名前"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text" />
+        android:hint="山田 太郎"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="生年月日" />
+        android:layout_marginTop="26dp"
+        android:text="生年月日(任意)"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:clickable="true"
         android:focusable="false"
-        android:inputType="date" />
-
-
+        android:hint="2000/01/01"
+        android:inputType="date"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="電話番号" />
+        android:layout_marginTop="26dp"
+        android:text="電話番号"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone" />
+        android:hint="090-1234-5678"
+        android:inputType="phone"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="登録" />
+        android:layout_marginTop="24dp"
+        android:text="登録"
+        android:textSize="20sp" />
 
 </LinearLayout>
