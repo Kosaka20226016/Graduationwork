@@ -14,7 +14,6 @@ class MypageActivity : AppCompatActivity() {
     private lateinit var btnAccountSettings: Button
     private lateinit var btnHome:Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
