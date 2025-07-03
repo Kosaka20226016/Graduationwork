@@ -1,5 +1,6 @@
 package jp.ac.nkc_cta09.graduationwork
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +16,12 @@ import com.google.zxing.common.BitMatrix
 import android.graphics.Bitmap
 import android.widget.TextView
 import android.util.Log
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
+import android.graphics.Color
+import android.view.View
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +57,25 @@ class MainActivity : AppCompatActivity() {
             }
 
         view_user_id.text = "ID: $userId"
+
+
+        val noticeList = mutableListOf<Notice>()
+
+        database.child("notices").get().addOnSuccessListener { snapshot ->
+            noticeList.clear()
+            for (child in snapshot.children) {
+                val notice = child.getValue(Notice::class.java)
+                if (notice != null) {
+                    noticeList.add(notice)
+                }
+            }
+
+            // 表示処理（次のステップ）
+            showNotices(noticeList)
+        }
+
+
+
     }
 
     fun generateBarcodeBitmap(content: String, width: Int = 1000, height: Int = 250): Bitmap {
@@ -62,4 +88,55 @@ class MainActivity : AppCompatActivity() {
         val encoder = BarcodeEncoder()
         return encoder.createBitmap(bitMatrix)
     }
+
+    fun showNotices(notices: List<Notice>) {
+        val container = findViewById<LinearLayout>(R.id.noticeContainer)
+        container.removeAllViews()
+
+        if (notices.isEmpty()) {
+            val emptyView = TextView(this)
+            emptyView.text = "お知らせはありません"
+            emptyView.textSize = 18f
+            emptyView.setTextColor(Color.GRAY)
+            emptyView.setPadding(16, 16, 16, 16)
+            container.addView(emptyView)
+            return
+        }
+
+        for (notice in notices) {
+            val noticeLayout = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(16, 16, 16, 16)
+            }
+
+            val titleView = TextView(this).apply {
+                text = notice.title
+                textSize = 22f
+                setTextColor(Color.BLACK)
+            }
+
+            val bodyView = TextView(this).apply {
+                text = notice.body
+                textSize = 16f
+                setTextColor(Color.DKGRAY)
+                visibility = View.GONE  // 最初は非表示
+            }
+
+            titleView.setOnClickListener {
+                val intent = Intent(this, NoticeDetailActivity::class.java)
+                intent.putExtra("title", notice.title)
+                intent.putExtra("body", notice.body)
+                intent.putExtra("date", notice.date)
+                startActivity(intent)
+            }
+
+            noticeLayout.addView(titleView)
+            noticeLayout.addView(bodyView)
+            container.addView(noticeLayout)
+        }
+    }
+
+
+
+
 }
