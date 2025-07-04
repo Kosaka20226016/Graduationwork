@@ -20,7 +20,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import android.graphics.Color
 import android.view.View
-
+import android.widget.Button
 
 
 class MainActivity : AppCompatActivity() {
@@ -57,6 +57,16 @@ class MainActivity : AppCompatActivity() {
             }
 
         view_user_id.text = "ID: $userId"
+
+        // *** ここからマイページボタンのロジックを追加 ***
+        // activity_main.xml にあるマイページボタンのIDに合わせて変更してください
+        val myPageButton: Button = findViewById(R.id.button3) // 例: あなたのXMLのボタンID
+
+        myPageButton.setOnClickListener {
+            val intent = Intent(this, MypageActivity::class.java) // MyPageActivityへのIntent
+            startActivity(intent) // MyPageActivityを開始
+        }
+        // *** ここまでマイページボタンのロジック ***
 
 
         val noticeList = mutableListOf<Notice>()
